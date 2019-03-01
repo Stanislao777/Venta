@@ -2,8 +2,11 @@ class Venta {
     constructor(){
 
     }
-    getTotal() {
+    total() {
         return 0;
+    }
+    add(){
+
     }
 }
 
