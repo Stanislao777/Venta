@@ -1,12 +1,19 @@
+
+
 class Venta {
     constructor(){
-
+        this.items = [];
     }
     total() {
-        return 0;
+        let result = 0;
+        this.items.forEach(function (item) {
+                result += item[0].cuantoPor(item[1]);
+        });
+        return result;
     }
-    add(){
 
+    anadir(articulo, cantidad){
+        this.items.push([articulo,cantidad]);
     }
 }
 
