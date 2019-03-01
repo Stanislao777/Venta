@@ -17,18 +17,25 @@ describe('TotalProductos', function() {
     });
 
     it('total de venta con un articulo deberia devolver el total para ese producto', function () {
-        let venta= new Venta();
+        let venta = new Venta();
         let pantalla = new Articulo("Pantalla SMS 17", 100);
         venta.anadir(pantalla, 1);
         expect(venta.total()).equal(100);
     });
 
     it('total de venta con un servicio deberia devolver el total para ese servicio', function () {
-        let venta= new Venta();
+        let venta = new Venta();
         let mantenimiento = new Servicio("Mantenimiento", 10);
         venta.anadir(mantenimiento, 1);
         expect(venta.total()).equal(15);
     });
 
-
+    it('total de venta con producto y servicio deberia devolver el total acumulado', function () {
+        let venta = new Venta();
+        let pantalla = new Articulo("Pantalla SMS 17", 100);
+        let mantenimiento = new Servicio("Mantenimiento", 10);
+        venta.anadir(pantalla,1);
+        venta.anadir(mantenimiento,1);
+        expect(venta.total()).equal(115);
+    });
 });
