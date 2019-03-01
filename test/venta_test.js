@@ -2,10 +2,12 @@ var assert = require('assert');
 var expect = require('chai').expect;
 var should = require('chai').should();
 
-var Venta = require ('../venta.js');
-//import Venta from '../venta.js';
-var Articulo = require ('../articulo.js');
-//import Articulo from "../articulo.js";
+//var Venta = require ('../venta.js');
+import Venta from '../venta.js';
+//var Articulo = require ('../articulo.js');
+import Articulo from '../articulo.js';
+//var Servicio = require ('../servicio.js');
+import Servicio from '../servicio.js';
 
 describe('TotalProductos', function() {
 
@@ -20,5 +22,13 @@ describe('TotalProductos', function() {
         venta.anadir(pantalla, 1);
         expect(venta.total()).equal(100);
     });
+
+    it('total de venta con un servicio deberia devolver el total para ese servicio', function () {
+        let venta= new Venta();
+        let mantenimiento = new Servicio("Mantenimiento", 10);
+        venta.anadir(mantenimiento, 1);
+        expect(venta.total()).equal(15);
+    });
+
 
 });
